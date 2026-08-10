@@ -1,3 +1,5 @@
+#This is basic s3 bucket creation
+
 provider "aws" {
     region = "eu-north-1"  
 }

@@ -112,9 +112,11 @@ The provider block tells Terraform which cloud/platform it should communicate wi
 
 For AWS:
 
+```bash
 provider "aws" {
   region = "ap-south-1"
 }
+```
 
 Here:
 
@@ -136,7 +138,7 @@ The resource block is one of the most important Terraform blocks.
 It defines infrastructure that Terraform should create or manage.
 
 Example:
-
+```bash
 resource "aws_instance" "web" {
   ami           = "ami-xxxxxxxx"
   instance_type = "t2.micro"
@@ -145,13 +147,14 @@ resource "aws_instance" "web" {
     Name = "WebServer"
   }
 }
-
+```
 Structure:
 
+```bash
 resource "RESOURCE_TYPE" "RESOURCE_NAME" {
   configuration
 }
-
+```
 Here:
 
 aws_instance → Resource type
@@ -174,18 +177,22 @@ The data block is used to read existing information instead of creating a new re
 
 Example: Find an existing AWS AMI:
 
+```bash
 data "aws_ami" "ubuntu" {
   most_recent = true
 
   owners = ["099720109477"]
 }
+```
 
 Then use it:
 
+```bash
 resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
 }
+```
 
 5. Module Block
 
@@ -200,12 +207,13 @@ modules/
     └── outputs.tf
 
 You can call it from your main configuration:
-
+```bash
 module "web_server" {
   source = "./modules/ec2"
 
   instance_type = "t2.micro"
 }
+```
 
 Instead of writing the same EC2 configuration repeatedly, you create it once as a module and reuse it.
 
@@ -221,15 +229,17 @@ EC2 / VPC / RDS / etc.
 A variable block allows you to pass values into your Terraform configuration.
 
 Example:
-
+```bash
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
   default     = "t2.micro"
 }
+```
 
 Use it:
 
+```bash
 resource "aws_instance" "web" {
   ami           = "ami-xxxxxxxx"
   instance_type = var.instance_type
@@ -255,10 +265,11 @@ This makes your Terraform code flexible and reusable.
 The output block displays useful information after Terraform creates infrastructure.
 
 Example:
-
+```bash
 output "instance_public_ip" {
   value = aws_instance.web.public_ip
 }
+```
 
 After:
 
@@ -282,7 +293,7 @@ RDS endpoint
 The locals block defines reusable values or expressions inside your Terraform configuration.
 
 Example:
-
+```bash
 locals {
   project_name = "employee-app"
   environment  = "production"
@@ -293,15 +304,18 @@ locals {
     ManagedBy   = "Terraform"
   }
 }
+```
+
 
 Use it:
-
+```bash
 resource "aws_instance" "web" {
   ami           = "ami-xxxxxxxx"
   instance_type = "t2.micro"
 
   tags = local.common_tags
 }
+```
 
 
 

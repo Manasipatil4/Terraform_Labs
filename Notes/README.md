@@ -86,6 +86,7 @@ terraform destroy
 
 The Terraform block defines Terraform's own configuration, such as required Terraform version, providers, and backend.
 
+```bash
 terraform {
   required_version = ">= 1.5.0"
 
@@ -97,6 +98,7 @@ terraform {
   }
 }
 
+```
 
 Used for:
 Terraform version

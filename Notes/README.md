@@ -82,7 +82,7 @@ terraform destroy
 | **Cost**                     | Free (pay only for AWS resources) | Open source; paid enterprise features available                |
 
 ## terraform blocks
-##1. Terraform Block
+## 1. Terraform Block
 
 The Terraform block defines Terraform's own configuration, such as required Terraform version, providers, and backend.
 
@@ -106,7 +106,7 @@ Provider requirements
 Backend configuration
 Provider configuration requirements.
 
-##2. Provider Block
+## 2. Provider Block
 
 The provider block tells Terraform which cloud/platform it should communicate with.
 
@@ -131,7 +131,7 @@ Google Cloud
 Kubernetes
 
 
-##3. Resource Block
+## 3. Resource Block
 
 The resource block is one of the most important Terraform blocks.
 
@@ -171,7 +171,7 @@ RDS
 Load Balancer
 IAM resources
 
-##4. Data Block
+## 4. Data Block
 
 The data block is used to read existing information instead of creating a new resource.
 
@@ -194,7 +194,7 @@ resource "aws_instance" "web" {
 }
 ```
 
-##5. Module Block
+## 5. Module Block
 
 A module is a reusable collection of Terraform configuration.
 
@@ -224,7 +224,7 @@ Reusable Terraform code
 EC2 / VPC / RDS / etc.
 
 
-##6. Variable Block
+## 6. Variable Block
 
 A variable block allows you to pass values into your Terraform configuration.
 
@@ -261,7 +261,7 @@ instance_type = var.instance_type
 
 This makes your Terraform code flexible and reusable.
 
-##7. Output Block
+## 7. Output Block
 
 The output block displays useful information after Terraform creates infrastructure.
 
@@ -289,7 +289,7 @@ Subnet ID
 RDS endpoint
 
 
-##8. Locals Block
+## 8. Locals Block
 
 The locals block defines reusable values or expressions inside your Terraform configuration.
 

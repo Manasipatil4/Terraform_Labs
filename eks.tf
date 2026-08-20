@@ -23,9 +23,9 @@ resource "aws_eks_cluster" "ekseg" {
 
   vpc_config {
     subnet_ids = [
-      "subnet-0502db0f7223c1588",
-      "subnet-056d72827e8145152",
-      "subnet-0a38ca3e43b18efb9",
+      "subnet-id1",
+      "subnet-id2",
+      "subnet-id3",
     ]
   }
 

@@ -1,3 +1,5 @@
+#using predefined iam roles
+
 provider "aws" {
   region = "eu-north-1"
 }
